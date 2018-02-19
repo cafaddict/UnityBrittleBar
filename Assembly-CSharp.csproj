@@ -51,20 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\MassSpringSystem\Assets\Scripts\SpringSystem\MassSpawner.cs" />
-     <Compile Include="Assets\MassSpringSystem\Assets\Scripts\SpringSystem\MassSpringSystem.cs" />
-     <Compile Include="Assets\MassSpringSystem\Assets\Scripts\UI\CanvasTouchManager.cs" />
-     <Compile Include="Assets\Scripts\Initiation.cs" />
      <Compile Include="Assets\Scripts\JobClass.cs" />
-     <Compile Include="Assets\Scripts\LineDrawer.cs" />
      <Compile Include="Assets\Scripts\MassClass.cs" />
      <Compile Include="Assets\Scripts\MassSpring.cs" />
      <Compile Include="Assets\Scripts\SpringClass.cs" />
      <Compile Include="Assets\Scripts\Threadjob.cs" />
-     <Compile Include="Assets\Scripts\threadTest.cs" />
-     <None Include="Assets\MassSpringSystem\Documentation\README.txt" />
-     <None Include="Assets\MassSpringSystem\Assets\Shaders\MassRenderShader.shader" />
-     <None Include="Assets\MassSpringSystem\Assets\Shaders\MassSpringSystem\MassSpringSystem.compute" />
  <Reference Include="UnityEngine.UIAutomation">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
  </Reference>

@@ -10,13 +10,14 @@ public class SpringClass {
 	public Vector3 springdir;
 	public float original_spring_length;
 	public float new_spring_length;
-	public float threashold=20;
+	public float threashold;
 	public bool cutted = false;
 
-	public SpringClass(MassClass newMass1, MassClass newMass2)
+	public SpringClass(MassClass newMass1, MassClass newMass2,float t_hold)
 	{
 		m1 = newMass1;
 		m2 = newMass2;
+		threashold = t_hold;
 	}
 
 	public void updateValues() {

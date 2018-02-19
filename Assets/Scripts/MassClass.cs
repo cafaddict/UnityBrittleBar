@@ -9,14 +9,15 @@ public class MassClass {
 	public Vector3 velocity;
 	public Vector3 accel;
 	public Vector3 massforce;
-	public float deltaTimeSec = (float) 0.0001;
+	public float deltaTimeSec;
 
 
-	public MassClass(float newMass,Vector3 newPosition)
+	public MassClass(float newMass,Vector3 newPosition,float delta_TimeSec)
 	{
 		mass = newMass;
 		position = newPosition;
 		new_position = newPosition;
+		deltaTimeSec = delta_TimeSec;
 
 	}
 

@@ -17,15 +17,21 @@ public class Job : ThreadedJob
 	public List<SpringClass> OutSpring;
 
 
+	public float stifness;
+	public int num_node;
+	public float damp;
+	public float addingforce;
+
+
 
 	private void letsupdate()
 	{
 		for (int i = 0; i < InMass.Count; i++) {
-			if ((i % 10) < (10 / 2)) {
-				InMass [i].massaddForce (new Vector3 ((float)-80, 0, 0));
+			if ((i % num_node) < (num_node / 2)) {
+				InMass [i].massaddForce (new Vector3 (-(addingforce), 0, 0));
 			} 
 			else {
-				InMass[i].massaddForce (new Vector3 (80,0,0));
+				InMass[i].massaddForce (new Vector3 (addingforce,0,0));
 			}
 			InMass [i].massupdate ();
 			//			Debug.Log ("MassForce = " + InMass [i].massforce);
@@ -43,7 +49,7 @@ public class Job : ThreadedJob
 				Vector3 dir12 = spring.springdir;
 				float o_length = spring.original_spring_length;
 				float n_length = spring.new_spring_length;
-				float cte = 3 * (n_length - o_length);
+				float cte = stifness * (n_length - o_length);
 
 				Vector3 force1;
 				force1.x = cte * dir12.x;
@@ -52,13 +58,13 @@ public class Job : ThreadedJob
 
 				Vector3 force2 = -force1;
 
-				m1.massforce.x = -force1.x - 1 * m1.velocity.x;
-				m1.massforce.y = -force1.y - 1 * m1.velocity.y;
-				m1.massforce.z = -force1.z - 1 * m1.velocity.z;
+				m1.massforce.x = -force1.x - damp * m1.velocity.x;
+				m1.massforce.y = -force1.y - damp * m1.velocity.y;
+				m1.massforce.z = -force1.z - damp * m1.velocity.z;
 
-				m2.massforce.x = -force2.x - 1 * m2.velocity.x;
-				m2.massforce.y = -force2.y - 1 * m2.velocity.y;
-				m2.massforce.z = -force2.z - 1 * m2.velocity.z;
+				m2.massforce.x = -force2.x - damp * m2.velocity.x;
+				m2.massforce.y = -force2.y - damp * m2.velocity.y;
+				m2.massforce.z = -force2.z - damp * m2.velocity.z;
 
 				m1.massupdate ();
 				m2.massupdate ();
